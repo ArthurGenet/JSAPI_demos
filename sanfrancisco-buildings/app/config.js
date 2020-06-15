@@ -3,7 +3,7 @@ define([], function () {
     portalUrl: "http://jsapi.maps.arcgis.com/",
     itemId: "abd5e3c4b173417f8c14f1283dee33c6",
     buildingLayerTitle: "BAG 3D - WGS - BAG 3D",
-    heightField: "roof-0.50",
+    heightField: "nr_ground_pts",
     usageField: "Gebruiksdoel",
     yearField: "Bouwjaar",
     timeline: {
