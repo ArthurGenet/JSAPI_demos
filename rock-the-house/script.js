@@ -6,7 +6,7 @@ require([
 
   const webscene = new WebScene({
     portalItem: {
-      id: "1dbcd382b2d847feb77131dd8aeeae8d"
+      id: "6add4a4d9c47403f91b4b5a81cb28545"
     }
   });
 
@@ -23,11 +23,11 @@ require([
   window.view = view;
 
   view.when(function () {
-
+    console.log("ok");
     const container = document.querySelector("#viewDiv canvas");
 
     let buildingLayer = webscene.layers.filter(function(layer) {
-      return layer.title === "Esri Admin Building";
+      return layer.title === "Jozefkerk - Jozefkerk";
     }).getItemAt(0);
 
     buildingLayer.when(function() {
