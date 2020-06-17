@@ -1,4 +1,4 @@
-define(["app/config", "app/utils", "app/statistics","app/main"], function (config, appUtils, statistics,main) {
+define(["app/config", "app/utils", "app/statistics"], function (config, appUtils, statistics) {
   var def_expression_date = "1=1 ";
   var def_expression_height = "AND 1=1 ";
   var def_expression_usage = "AND 1=1";

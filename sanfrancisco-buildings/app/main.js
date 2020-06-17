@@ -82,8 +82,10 @@ define([
                   runQuery();
                 }
               });
+              console.log("allez laaaa");
             });
           }
+          console.log("t serieux frero?");
         });
       });
       // add sketch functionality
@@ -103,7 +105,7 @@ define([
         },
         view: view
       });
-
+      console.log("psartek");
       sketchViewModel.on("create", function (event) {
         if (event.state === "complete") {
           appState.filterGeometry = event.graphic.geometry;
@@ -114,7 +116,7 @@ define([
           runQuery();
         }
       });
-
+      console.log("sisi la famille");
       sketchViewModel.on("update", function (event) {
         if (!event.cancelled && event.graphics.length) {
           appState.filterGeometry = event.graphics[0].geometry;
@@ -138,6 +140,7 @@ define([
           if (error.name === "AbortError") {
             return;
           }
+          console.log("mais non");
           console.error(error);
         });
       }

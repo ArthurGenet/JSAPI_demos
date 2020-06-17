@@ -2,7 +2,7 @@ define([], function () {
   return {
     portalUrl: "http://jsapi.maps.arcgis.com/",
     itemId: "00115b48f3ba428f81d35d92f8f3c730",
-    buildingLayerTitle: "BAG 3D Drechtsteden RD - BAG 3D Drechtsteden MP",
+    buildingLayerTitle: "BAG_3D_Drechtsteden_RD",
     heightField: "Pandhoogte",
     usageField: "Gebruiksfunctie",
     yearField: "Bouwjaar",
