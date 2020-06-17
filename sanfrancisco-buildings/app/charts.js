@@ -1,4 +1,9 @@
-define(["app/config", "app/utils", "app/statistics"], function (config, appUtils, statistics) {
+define(["app/config", "app/utils", "app/statistics","app/main"], function (config, appUtils, statistics,main) {
+  var def_expression_date = "1=1 ";
+  var def_expression_height = "AND 1=1 ";
+  var def_expression_usage = "AND 1=1";
+  //var layer = main.bdgLayer;
+  //console.log(layer);
   Chart.defaults.global.defaultFontFamily = `"Avenir Next W00","Helvetica Neue",Helvetica,Arial,sans-serif`;
   Chart.defaults.global.defaultFontSize = 12;
   function createYearChart() {
@@ -115,19 +120,49 @@ define(["app/config", "app/utils", "app/statistics"], function (config, appUtils
         ]
       },
       options: {
-        responsive: false,
+        events: ['onClick'],
+        responsive: true,
         cutoutPercentage: 35,
-        legend: {
-          position: "bottom"
-        },
         title: {
           display: true,
           text: "Building usage"
+        },
+        legend:{
+          display:false,
+          position:'bottom',
+          align: 'left',
+          labels:{
+          fontSize: 9
+          }
         }
-      }
+      },
     });
+    usageCanvas.onclick = function(evt)
+    {   
+        console.log("click");
+        var activePoints = usageChart.getElementsAtEvent(evt);
+
+
+          //get the internal index of slice in pie chart
+          var clickedElementindex = activePoints[0]["_index"];
+          console.log(clickedElementindex);
+          //get specific label by index 
+          var label = usageChart.data.labels[clickedElementindex];
+          console.log(label);
+          //get value by index      
+          var value = usageChart.data.datasets[0].data[clickedElementindex];
+          console.log(value);
+          /* other stuff that requires slice's label and value */
+          def_expression_usage = "AND Gebruiskoel LIKE '" + label + "'";
+          main.defExpression(def_expression_date,def_expression_height,def_expression_usage);
+
+         
+     
+  }
     return usageChart;
   }
+
+
 
   const yearChart = createYearChart();
   const heightChart = createHeightChart();
@@ -158,4 +193,7 @@ define(["app/config", "app/utils", "app/statistics"], function (config, appUtils
       usageChart.update();
     }
   }
+
+
+
 });

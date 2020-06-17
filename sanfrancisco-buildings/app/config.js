@@ -1,10 +1,10 @@
 define([], function () {
   return {
     portalUrl: "http://jsapi.maps.arcgis.com/",
-    itemId: "abd5e3c4b173417f8c14f1283dee33c6",
-    buildingLayerTitle: "BAG 3D - WGS - BAG 3D",
-    heightField: "nr_ground_pts",
-    usageField: "Gebruiksdoel",
+    itemId: "00115b48f3ba428f81d35d92f8f3c730",
+    buildingLayerTitle: "BAG 3D Drechtsteden RD - BAG 3D Drechtsteden MP",
+    heightField: "Pandhoogte",
+    usageField: "Gebruiksfunctie",
     yearField: "Bouwjaar",
     timeline: {
       bin: 5,
@@ -52,21 +52,45 @@ define([], function () {
       binSize: 10
     },
     usageValues: [{
-      value: "MIPS",
-      color: "#FD7F6F",
-      label: "Office"
+      value: "bijeenkomstfunctie",
+      color: "#00FFC5",
+      label: "Bijeenkomstfunctie"
     }, {
-      value: "RESIDENT",
-      color: "#7EB0D5",
-      label: "Residential"
+      value: "gezondheidszorgfunctie",
+      color: "#E69800",
+      label: "Gezondheidszorgfunctie"
     }, {
-      value: "MIXRES",
-      color: "#BD7EBE",
-      label: "Mixed use"
+      value: "industriefunctie",
+      color: "#B53535",
+      label: "Industriefunctie"
     }, {
-      value: "MIXED",
-      color: "#B2E061",
-      label: "Mixed use without residential"
+      value: "kantoorfunctie",
+      color: "#8400A8",
+      label: "Kantoorfunctie"
+    }, {
+      value: "logiesfunctie",
+      color: "#376CBD",
+      label: "Logiesfunctie"
+    }, {
+      value: "onderwijsfunctie",
+      color: "#E600A9",
+      label: "Onderwijsfunctie"
+    }, {
+      value: "overige gebruiksfunctie",
+      color: "#734C00",
+      label: "Overige gebruiksfunctie"
+    }, {
+      value: "sportfunctie",
+      color: "#65A843",
+      label: "Sportfunctie"
+    }, {
+      value: "winkelfunctie",
+      color: "#FFFF00",
+      label: "Winkelfunctie"
+    }, {
+      value: "woonfunctie",
+      color: "#E1E1E1",
+      label: "Woonfunctie"
     }]
   }
 });

@@ -4,15 +4,19 @@ define(["app/config", "esri/Color"], function (config, Color) {
     const bins = [];
     const stops = config.heightVariable.stops;
     const binSize = config.heightVariable.binSize;
-    for (let i = stops[stops.length - 1].value; i >= stops[0].value; i -= binSize) {
+    console.log(binSize);
+    console.log(stops[0].value-1);
+    console.log(stops[stops.length - 1].value);
+    for (let i = stops[stops.length - 1].value; i >= stops[0].value-10; i -= binSize) {
       const nextValue = i + binSize;
+      console.log(nextValue);
       let fieldName = `height_${i}_${nextValue}`;
       let label = `${i} < ${nextValue}m`;
       let statsField = `CASE WHEN (${config.heightField} < ${nextValue} AND ${config.heightField} >= ${i}) THEN 1 ELSE 0 END`;
-      if (i - binSize < stops[0].value) {
+      if (i - binSize < stops[0].value-10) {
         fieldName = `height_${i}`;
-        label = `< ${i}m`;
-        statsField = `CASE WHEN (${config.heightField} < ${i}) THEN 1 ELSE 0 END`;
+        label = `< ${i+10}m`;
+        statsField = `CASE WHEN (${config.heightField} < ${i}+10) THEN 1 ELSE 0 END`;
       }
       if (i === stops[stops.length - 1].value) {
         fieldName = `height_${i}`;

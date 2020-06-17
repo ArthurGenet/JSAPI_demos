@@ -1,3 +1,5 @@
+let bdgLayer = null;
+
 define([
   "app/config",
   "esri/WebScene",
@@ -21,12 +23,16 @@ define([
   statistics,
   renderers,
   charts) {
+  
 
   return {
     init: function () {
+     
       esriConfig.portalUrl = config.portalUrl;
-
+      console.log("alors");
+      //console.log(def_expression_usage);
       let bdgLayer = null;
+
       let bdgLayerView = null;
 
       const appState = {
@@ -55,8 +61,10 @@ define([
             bdgLayer = layer;
             bdgLayer.popupTemplate = {
               content: `Building is {${config.heightField}}m tall, was built in
-              {${config.yearField}} and is has a {${config.usageField}} use.`
+              {${config.yearField}} and he has a {${config.usageField}} use.`
             };
+            console.log(config.heightField);
+            console.log(bdgLayer);
             bdgLayer.outFields = [config.heightField, config.yearField, config.usageField];
             view.whenLayerView(layer).then(function (lyrView) {
               bdgLayerView = lyrView;
@@ -78,7 +86,6 @@ define([
           }
         });
       });
-
       // add sketch functionality
 
       const sketchLayer = new GraphicsLayer({
@@ -166,6 +173,16 @@ define([
       function updateMap() {
         bdgLayer.definitionExpression = `${config.yearField} <= ${appState.maxYear}`;
       }
+        console.log("ziva2");
     }
+
   }
+  console.log("ziva");
+  function defExpression(date_expression, height_expression, usage_expression){
+    console.log("AAAAAA");
+      def_expression = date_expression+height_expression+usage_expression;
+      bdgLayer.definitionExpression = def_expression;
+     
+  
+    }
 });
