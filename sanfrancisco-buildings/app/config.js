@@ -1,8 +1,8 @@
 define([], function () {
   return {
     portalUrl: "http://jsapi.maps.arcgis.com/",
-    itemId: "00115b48f3ba428f81d35d92f8f3c730",
-    buildingLayerTitle: "BAG_3D_Drechtsteden_RD",
+    itemId: "605aa368f1594170acf6defa83ecca42",
+    buildingLayerTitle: "BAG 3D Drechtsteden RD - BAG 3D Drechtsteden MP",
     heightField: "Pandhoogte",
     usageField: "Gebruiksfunctie",
     yearField: "Bouwjaar",
@@ -46,10 +46,10 @@ define([], function () {
     }],
     heightVariable: {
       stops: [
-        { value: 10, color: "#e0ecf4", label: "< 10m" },
-        { value: 70, color: "#8856a7", label: "> 70m" }
+        { value: 5, color: "#e0ecf4", label: "< 10m" },
+        { value: 30, color: "#8856a7", label: "> 70m" }
       ],
-      binSize: 10
+      binSize: 5
     },
     usageValues: [{
       value: "bijeenkomstfunctie",

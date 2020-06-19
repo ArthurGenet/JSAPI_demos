@@ -1,5 +1,13 @@
 let bdgLayer = null;
 
+function defExpression(date_expression, height_expression, usage_expression){
+  console.log("AAAAAA");
+  def_expression = date_expression+height_expression+usage_expression;
+  console.log(def_expression);
+  bdgLayer.definitionExpression = def_expression;
+}
+
+
 define([
   "app/config",
   "esri/WebScene",
@@ -23,16 +31,12 @@ define([
   statistics,
   renderers,
   charts) {
-  
 
   return {
     init: function () {
-     
       esriConfig.portalUrl = config.portalUrl;
-      console.log("alors");
-      //console.log(def_expression_usage);
-      let bdgLayer = null;
 
+      
       let bdgLayerView = null;
 
       const appState = {
@@ -61,13 +65,13 @@ define([
             bdgLayer = layer;
             bdgLayer.popupTemplate = {
               content: `Building is {${config.heightField}}m tall, was built in
-              {${config.yearField}} and he has a {${config.usageField}} use.`
+              {${config.yearField}} and it has a {${config.usageField}} use.`
             };
-            console.log(config.heightField);
-            console.log(bdgLayer);
             bdgLayer.outFields = [config.heightField, config.yearField, config.usageField];
+
             view.whenLayerView(layer).then(function (lyrView) {
               bdgLayerView = lyrView;
+              
               // add time slider
               const timeSlider = time.createTimeSlider(view, config);
               timeSlider.watch("timeExtent", function (timeExtent) {
@@ -82,12 +86,11 @@ define([
                   runQuery();
                 }
               });
-              console.log("allez laaaa");
             });
           }
-          console.log("t serieux frero?");
         });
       });
+
       // add sketch functionality
 
       const sketchLayer = new GraphicsLayer({
@@ -105,7 +108,7 @@ define([
         },
         view: view
       });
-      console.log("psartek");
+
       sketchViewModel.on("create", function (event) {
         if (event.state === "complete") {
           appState.filterGeometry = event.graphic.geometry;
@@ -116,7 +119,7 @@ define([
           runQuery();
         }
       });
-      console.log("sisi la famille");
+
       sketchViewModel.on("update", function (event) {
         if (!event.cancelled && event.graphics.length) {
           appState.filterGeometry = event.graphics[0].geometry;
@@ -140,7 +143,6 @@ define([
           if (error.name === "AbortError") {
             return;
           }
-          console.log("mais non");
           console.error(error);
         });
       }
@@ -176,16 +178,8 @@ define([
       function updateMap() {
         bdgLayer.definitionExpression = `${config.yearField} <= ${appState.maxYear}`;
       }
-        console.log("ziva2");
     }
-
   }
-  console.log("ziva");
-  function defExpression(date_expression, height_expression, usage_expression){
-    console.log("AAAAAA");
-      def_expression = date_expression+height_expression+usage_expression;
-      bdgLayer.definitionExpression = def_expression;
-     
-  
-    }
+
 });
+
