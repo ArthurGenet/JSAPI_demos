@@ -4,7 +4,6 @@ function defExpression(date_expression, height_expression, usage_expression){
   def_expression = date_expression+height_expression+usage_expression;
   console.log(def_expression);
   bdgLayer.definitionExpression = def_expression;
-  runQuery();
 }
 
 
@@ -81,10 +80,10 @@ define([
 
               // watch for changes on the layer
               bdgLayerView.watch("updating", function (updating) {
-                if (!updating) {
+                //if (!updating) {
                   console.log("updating");
                   runQuery();
-                }
+                //}
               });
             });
           }
@@ -173,27 +172,23 @@ define([
         bdgLayerView.filter = null;
         sketchViewModel.cancel();
         sketchLayer.removeAll();
-        runQuery();
+        //runQuery();
       });
 
       document.getElementById("applyYearRenderer").addEventListener("click", function () {
         renderers.applyYearRenderer(bdgLayer);
-        runQuery();
       });
 
       document.getElementById("applyHeightRenderer").addEventListener("click", function () {
         renderers.applyHeightRenderer(bdgLayer);
-        runQuery();
       });
 
       document.getElementById("applyUsageRenderer").addEventListener("click", function () {
         renderers.applyUsageRenderer(bdgLayer);
-        runQuery();
       });
 
       document.getElementById("clearRenderer").addEventListener("click", function () {
         renderers.applyOriginalTexture(bdgLayer);
-        runQuery();
       });
 
       function updateMap() {
