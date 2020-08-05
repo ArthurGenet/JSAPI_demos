@@ -179,6 +179,7 @@ define([
 
       document.getElementById("applyYearRenderer").addEventListener("click", function () {
         renderers.applyYearRenderer(bdgLayer);
+        console.log(bdgLayerView.suspended);
       });
 
       document.getElementById("applyHeightRenderer").addEventListener("click", function () {
