@@ -80,10 +80,12 @@ define([
 
               // watch for changes on the layer
               bdgLayerView.watch("updating", function (updating) {
-                //if (!updating) {
+                console.log("try updating");
+
+                if (!updating) {
                   console.log("updating");
                   runQuery();
-                //}
+                }
               });
             });
           }
@@ -172,7 +174,7 @@ define([
         bdgLayerView.filter = null;
         sketchViewModel.cancel();
         sketchLayer.removeAll();
-        //runQuery();
+        runQuery();
       });
 
       document.getElementById("applyYearRenderer").addEventListener("click", function () {
