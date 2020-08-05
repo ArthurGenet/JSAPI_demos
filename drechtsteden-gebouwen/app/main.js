@@ -4,6 +4,7 @@ function defExpression(date_expression, height_expression, usage_expression){
   def_expression = date_expression+height_expression+usage_expression;
   console.log(def_expression);
   bdgLayer.definitionExpression = def_expression;
+  runQuery();
 }
 
 
@@ -107,21 +108,22 @@ define([
           toggleToolOnClick: false
         },
         view: view,
-          polygonSymbol: {
-            type: "polygon-3d",
-            symbolLayers: [
-              {
-                type: "fill",
-                material: {
-                  color: [100, 200, 210, 0.6]
-                },
-                outline: {
-                  color: [0, 0, 0, 1],
-                  size: "5px"
-                }
+        defaultCreateOptions: { hasZ: false }, // follow the elevation profile
+        polygonSymbol: {
+          type: "polygon-3d",
+          symbolLayers: [
+            {
+              type: "fill",
+              material: {
+                color: [100, 200, 210, 0.6]
+              },
+              outline: {
+                color: [0, 0, 0, 1],
+                size: "5px"
               }
-            ]
-          }
+            }
+          ]
+        }
       });
 
       sketchViewModel.on("create", function (event) {

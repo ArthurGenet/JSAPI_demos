@@ -39,7 +39,7 @@ define(["app/config", "app/utils"], function (config, appUtils) {
         statisticType: "sum"
       }
     });
-
+    console.log(usageStats);
     const otherStats = {
       onStatisticField:
         `CASE WHEN ${config.usageField} IN ('${types.join("', '")}') THEN 0 ELSE 1 END`,
@@ -47,6 +47,8 @@ define(["app/config", "app/utils"], function (config, appUtils) {
       statisticType: "sum"
     }
     usageStats.push(otherStats);
+    console.log("oui");
+    console.log(usageStats);
     return usageStats;
   }
 
