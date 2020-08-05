@@ -178,18 +178,22 @@ define([
 
       document.getElementById("applyYearRenderer").addEventListener("click", function () {
         renderers.applyYearRenderer(bdgLayer);
+        runQuery();
       });
 
       document.getElementById("applyHeightRenderer").addEventListener("click", function () {
         renderers.applyHeightRenderer(bdgLayer);
+        runQuery();
       });
 
       document.getElementById("applyUsageRenderer").addEventListener("click", function () {
         renderers.applyUsageRenderer(bdgLayer);
+        runQuery();
       });
 
       document.getElementById("clearRenderer").addEventListener("click", function () {
         renderers.applyOriginalTexture(bdgLayer);
+        runQuery();
       });
 
       function updateMap() {
