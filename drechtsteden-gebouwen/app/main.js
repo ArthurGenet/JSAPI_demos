@@ -100,7 +100,7 @@ define([
 
 
       function addChartEventListeners() {
-        usageCanvas.onclick = function(evt)
+        charts.usageCanvas.onclick = function(evt)
 
         {   
           if (click_usage == false){
@@ -129,7 +129,7 @@ define([
 
 
 
-        heightCanvas.onclick = function(evt)
+        charts.heightCanvas.onclick = function(evt)
 
     {   
       if (click_height == false){
@@ -167,7 +167,7 @@ define([
 
 
 
-        yearCanvas.onclick = function(evt)
+        charts.yearCanvas.onclick = function(evt)
 
     {   
       if (click_year == false){
