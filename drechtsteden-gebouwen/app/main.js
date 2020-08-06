@@ -1,8 +1,3 @@
-let bdgLayer = null;
-
-
-
-
 define([
   "app/config",
   "esri/WebScene",
@@ -31,7 +26,7 @@ define([
     init: function () {
       esriConfig.portalUrl = config.portalUrl;
 
-      
+      let bdgLayer = null;
       let bdgLayerView = null;
 
       const appState = {
