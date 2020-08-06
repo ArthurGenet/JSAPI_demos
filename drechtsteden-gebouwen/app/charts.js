@@ -9,10 +9,12 @@ define(["app/config", "app/utils", "app/statistics", "app/main"], function (conf
   var click_year = false;
   var click_height = false;
   var click_usage = false;
-
+   
+  const yearCanvas = document.getElementById("yearChart");
+  const usageCanvas = document.getElementById("usageChart");
+  const heightCanvas = document.getElementById("heightChart");
 
   function createYearChart() {
-    const yearCanvas = document.getElementById("yearChart");
     const yearChart = new Chart(yearCanvas.getContext("2d"), {
       type: "bar",
       data: {
@@ -88,7 +90,7 @@ define(["app/config", "app/utils", "app/statistics", "app/main"], function (conf
     return yearChart;
   }
   function createHeightChart() {
-    const heightCanvas = document.getElementById("heightChart");
+    
     const heightBins = appUtils.heightBins;
     const heightChart =  new Chart(heightCanvas.getContext("2d"), {
       type: "horizontalBar",
@@ -180,7 +182,6 @@ define(["app/config", "app/utils", "app/statistics", "app/main"], function (conf
     });
     backgroundColor.push(config.otherColor);
 
-    const usageCanvas = document.getElementById("usageChart");
     const usageChart = new Chart(usageCanvas.getContext("2d"), {
       type: "doughnut",
       data: {
@@ -244,6 +245,9 @@ define(["app/config", "app/utils", "app/statistics", "app/main"], function (conf
     yearChart,
     heightChart,
     usageChart,
+    yearCanvas,
+    heightCanvas,
+    usageCanvas,
     updateCharts(result) {
       const allStats = result.features[0].attributes;
 
