@@ -76,14 +76,15 @@ define([
               });
 
               // watch for changes on the layer
-              
+              bdgLayerView.watch("updating", function (updating) {
+                console.log("try updating");
 
-                //if (!updating) {
+                if (!updating) {
                   console.log("updating");
                   runQuery();
                   addChartEventListeners();
-                //}
-              
+                }
+              });
             });
           }
         });
