@@ -106,9 +106,9 @@ define([
           if (click_usage == false){
 
             click_usage = true;
-            var activePoints = usageChart.getElementsAtEvent(evt);
+            var activePoints = charts.usageChart.getElementsAtEvent(evt);
             var clickedElementindex = activePoints[0]["_index"];
-            var label = usageChart.data.labels[clickedElementindex];
+            var label = charts.usageChart.data.labels[clickedElementindex];
 
             if (label == "Other"){
               def_expression_usage = "AND Gebruiksfunctie IS NULL ";
@@ -135,9 +135,9 @@ define([
       if (click_height == false){
 
         click_height = true;
-        var activePoints = heightChart.getElementsAtEvent(evt);
+        var activePoints = charts.heightChart.getElementsAtEvent(evt);
         var clickedElementindex = activePoints[0]["_index"];
-        var label = heightChart.data.labels[clickedElementindex];
+        var label = charts.heightChart.data.labels[clickedElementindex];
         var heights = label.split(" ");
         
         
@@ -173,9 +173,9 @@ define([
       if (click_year == false){
 
         click_year = true;
-        var activePoints = yearChart.getElementsAtEvent(evt);
+        var activePoints = charts.yearChart.getElementsAtEvent(evt);
         var clickedElementindex = activePoints[0]["_index"];
-        var label = yearChart.data.labels[clickedElementindex];
+        var label = charts.yearChart.data.labels[clickedElementindex];
         var dates = label.split(" ");
         
         
